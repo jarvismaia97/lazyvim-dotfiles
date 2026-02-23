@@ -83,6 +83,28 @@ sudo apt install ripgrep fd-find gcc make
 # Then clone + install as above
 ```
 
+## 60% Keyboard Setup (NuPhy Air60 V2)
+
+This config is optimized for 60% keyboards — no F-keys or arrow keys needed.
+
+### Caps Lock → Escape/Ctrl (recommended)
+
+Install [Karabiner-Elements](https://karabiner-elements.pqrs.org/) and import the rule from `karabiner/karabiner.json`:
+
+- **Tap** Caps Lock → Escape (exit insert mode instantly)
+- **Hold** Caps Lock → Ctrl (for all Ctrl combos)
+
+Or without Karabiner: System Settings → Keyboard → Modifier Keys → Caps Lock = Escape
+
+### 60%-specific keybinds
+
+| Key | Action | Why |
+|-----|--------|-----|
+| `jk` or `jj` | Exit insert mode | No Escape key reach |
+| `;` | Command mode (`:`) | Skip Shift |
+| `<Space>w` | Save file | No Ctrl+S needed |
+| `<Space>q` | Quit | Quick close |
+
 ## Key Bindings
 
 Leader key is **Space**.

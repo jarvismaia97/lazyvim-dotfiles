@@ -1,0 +1,31 @@
+{
+  "title": "LazyVim — 60% Keyboard Tweaks",
+  "rules": [
+    {
+      "description": "Caps Lock → Escape (tap) / Ctrl (hold)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [
+            {
+              "key_code": "left_control",
+              "lazy": true
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 200
+          }
+        }
+      ]
+    }
+  ]
+}

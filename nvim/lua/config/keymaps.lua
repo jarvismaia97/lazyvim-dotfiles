@@ -5,6 +5,20 @@
 
 local map = vim.keymap.set
 
+-- ── 60% Keyboard Optimizations (NuPhy Air60 V2) ────────────
+-- Exit insert mode without reaching for Escape
+map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+
+-- ; as : (skip Shift for command mode — huge on 60%)
+map("n", ";", ":", { desc = "Command mode" })
+map("v", ";", ":", { desc = "Command mode" })
+
+-- Quick save/quit with leader
+map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
+map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
+map("n", "<leader>Q", "<cmd>qa!<cr>", { desc = "Quit all (force)" })
+
 -- ── Navigation ──────────────────────────────────────────────
 -- Better window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
