@@ -1,0 +1,16 @@
+# Lazy.nvim lock file (auto-generated, machine-specific)
+nvim/lazy-lock.json
+
+# Plugin cache
+nvim/plugin/
+
+# Neovim swap/undo/backup
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Session files
+nvim/sessions/
