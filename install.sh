@@ -28,7 +28,7 @@ echo ""
 
 # ── 1. Check/Install Neovim ──────────────────────────────────
 if command -v nvim &>/dev/null; then
-  NVIM_VERSION=$(nvim --version | head -1 | grep -oP '\d+\.\d+')
+  NVIM_VERSION=$(nvim --version | head -1 | sed 's/.*v\([0-9]*\.[0-9]*\).*/\1/')
   if [ "$(printf '%s\n' "$MIN_NVIM_VERSION" "$NVIM_VERSION" | sort -V | head -1)" = "$MIN_NVIM_VERSION" ]; then
     ok "Neovim $NVIM_VERSION found (>= $MIN_NVIM_VERSION)"
   else
