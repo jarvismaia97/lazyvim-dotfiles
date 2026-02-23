@@ -14,7 +14,7 @@ return {
     },
   },
 
-  -- Dashboard (alpha-nvim replacement via LazyVim)
+  -- Dashboard — custom logo
   {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
@@ -27,6 +27,7 @@ return {
  ╚══════╝╚═╝  ╚═╝╚══════╝  ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
       ]]
       logo = string.rep("\n", 4) .. logo .. "\n\n"
+      opts.config = opts.config or {}
       opts.config.header = vim.split(logo, "\n")
     end,
   },
