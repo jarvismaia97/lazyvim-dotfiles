@@ -49,31 +49,26 @@ return {
   },
 
   -- REST client (test APIs inline, like Postman)
+  -- Create .http files and run requests
   -- <leader>rr = run request, <leader>rl = run last
   {
-    "rest-nvim/rest.nvim",
+    "mistweaverco/kulala.nvim",
     ft = "http",
-    dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
-      { "<leader>rr", "<cmd>Rest run<cr>", desc = "Run HTTP request" },
-      { "<leader>rl", "<cmd>Rest run last<cr>", desc = "Re-run last request" },
-      { "<leader>rp", "<cmd>Rest run cursor<cr>", desc = "Preview request" },
+      { "<leader>rr", function() require("kulala").run() end, desc = "Run HTTP request" },
+      { "<leader>rl", function() require("kulala").replay() end, desc = "Replay last request" },
+      { "<leader>ri", function() require("kulala").inspect() end, desc = "Inspect request" },
     },
-    config = function()
-      require("rest-nvim").setup({
-        result_split_horizontal = false,
-        skip_ssl_verification = true,
-      })
-    end,
+    opts = {},
   },
 
   -- Tailwind CSS tools: color preview, class sorting
   {
     "luckasRanaworthe/tailwind-tools.nvim",
     name = "tailwind-tools",
-    build = ":UpdateRemotePlugins",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    ft = { "html", "typescriptreact", "javascriptreact", "svelte", "vue", "tsx", "jsx" },
+    ft = { "html", "typescriptreact", "javascriptreact", "svelte", "vue" },
     opts = {},
+    enabled = false, -- Enable when repo is available
   },
 }
