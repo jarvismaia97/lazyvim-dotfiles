@@ -125,6 +125,32 @@ if [ -d "$SCRIPT_DIR/wezterm" ]; then
   ok "WezTerm config linked"
 fi
 
+# ── 4c. Symlink Zsh config ──────────────────────────────────
+ZSHRC_FILE="$HOME/.zshrc"
+if [ -f "$SCRIPT_DIR/zsh/.zshrc" ]; then
+  if [ -f "$ZSHRC_FILE" ] && [ ! -L "$ZSHRC_FILE" ]; then
+    ZSHRC_BACKUP="${ZSHRC_FILE}.backup.$(date +%Y%m%d_%H%M%S)"
+    warn "Backing up existing .zshrc → $ZSHRC_BACKUP"
+    mv "$ZSHRC_FILE" "$ZSHRC_BACKUP"
+  fi
+  info "Symlinking $SCRIPT_DIR/zsh/.zshrc → $ZSHRC_FILE"
+  ln -sf "$SCRIPT_DIR/zsh/.zshrc" "$ZSHRC_FILE"
+  ok "Zsh config linked"
+fi
+
+# ── 4d. Symlink Tmux config ─────────────────────────────────
+TMUX_CONFIG="$HOME/.tmux.conf"
+if [ -f "$SCRIPT_DIR/tmux/.tmux.conf" ]; then
+  if [ -f "$TMUX_CONFIG" ] && [ ! -L "$TMUX_CONFIG" ]; then
+    TMUX_BACKUP="${TMUX_CONFIG}.backup.$(date +%Y%m%d_%H%M%S)"
+    warn "Backing up existing .tmux.conf → $TMUX_BACKUP"
+    mv "$TMUX_CONFIG" "$TMUX_BACKUP"
+  fi
+  info "Symlinking $SCRIPT_DIR/tmux/.tmux.conf → $TMUX_CONFIG"
+  ln -sf "$SCRIPT_DIR/tmux/.tmux.conf" "$TMUX_CONFIG"
+  ok "Tmux config linked"
+fi
+
 # ── 5. First launch info ─────────────────────────────────────
 echo ""
 echo "╔═══════════════════════════════════════╗"

@@ -43,6 +43,41 @@ Personal Neovim configuration built on [LazyVim](https://www.lazyvim.org/) — a
 | **Oil.nvim** | Edit filesystem like a buffer | `<Space>o` or `-` |
 | **typescript-tools** | Faster TS LSP (replaces tsserver) | automatic |
 
+### Shell (Zsh)
+| Feature | Details |
+|---------|---------|
+| **Prompt** | Starship (fast, minimal, git-aware) |
+| **History** | 10000 lines, shared between sessions, no duplicates |
+| **Completion** | Fast auto-completion with case-insensitive matching |
+| **Key bindings** | Emacs mode (Ctrl+A/E, Ctrl+W, etc.) |
+| **NVM loading** | Lazy-loaded for fast startup (<200ms) |
+| **FZF integration** | Fuzzy finder for files/history (if available) |
+
+#### Zsh Aliases
+| Category | Aliases |
+|----------|---------|
+| **Navigation** | `ll` (ls -la), `la` (ls -a), `..` (cd ..), `...` (cd ../..) |
+| **Git** | `gs` (status), `ga` (add), `gc` (commit), `gp` (push), `gl` (log), `gd` (diff), `gco` (checkout), `gb` (branch), `gcm` (commit -m) |
+| **pnpm** | `pn` (pnpm), `pnr` (run), `pnd` (dev), `pnb` (build), `pni` (install) |
+| **Bun** | `br` (bun run), `bd` (bun dev), `bb` (bun build), `bi` (bun install) |
+| **Docker** | `dk` (docker), `dkc` (docker compose), `dkps` (docker ps), `dkl` (docker logs -f) |
+| **Misc** | `v` (nvim), `c` (clear), `ports` (show listening ports) |
+
+### Tmux
+| Feature | Details |
+|---------|---------|
+| **Prefix** | `Ctrl+A` (matching WezTerm leader) |
+| **Theme** | Catppuccin Mocha (matching nvim/WezTerm) |
+| **Mouse** | Full mouse support enabled |
+| **Copy mode** | Vi-style with system clipboard integration |
+| **Pane splits** | `prefix+\|` (horizontal), `prefix+-` (vertical) |
+| **Pane nav** | `prefix+hjkl` (vim-style) |
+| **Pane resize** | `prefix+HJKL` (vim-style) |
+| **Windows** | Start at index 1, auto-renumber |
+| **Scrollback** | 10000 lines |
+| **Colors** | 256 color + true color support |
+| **Status bar** | Session name, window list, time |
+
 ### WezTerm
 | Feature | Details |
 |---------|---------|
@@ -63,6 +98,9 @@ Personal Neovim configuration built on [LazyVim](https://www.lazyvim.org/) — a
 - **Neovim >= 0.10** (installer handles this)
 - **JetBrains Mono Nerd Font** — [download](https://www.nerdfonts.com/font-downloads)
 - **Git**, **Node.js** (for LSPs), **ripgrep**, **fd**
+- **Zsh** (default on macOS, install on Linux)
+- **Starship prompt** — `brew install starship` or see [starship.rs](https://starship.rs)
+- **Tmux** — `brew install tmux` (optional, for terminal multiplexing)
 
 ### Install
 
@@ -83,7 +121,7 @@ nvim
 
 ```bash
 # Install dependencies first
-brew install neovim ripgrep fd lazygit node
+brew install neovim ripgrep fd lazygit node starship tmux
 
 # Install JetBrains Mono Nerd Font
 brew install --cask font-jetbrains-mono-nerd-font
@@ -180,6 +218,34 @@ Leader key is **Space**.
 | `<C-d>` / `<C-u>` | Scroll down/up (centered) |
 | `<C-s>` | Save file |
 | `<Space>p` | Paste without yanking |
+
+## Shell & Terminal Keybindings
+
+### Tmux (prefix = Ctrl+A)
+| Key | Action |
+|-----|--------|
+| `prefix+\|` | Split pane horizontally |
+| `prefix+-` | Split pane vertically |
+| `prefix+h/j/k/l` | Navigate panes (vim-style) |
+| `prefix+H/J/K/L` | Resize panes (vim-style) |
+| `prefix+c` | Create new window |
+| `prefix+p/n` | Previous/next window |
+| `prefix+1-9` | Switch to window number |
+| `prefix+r` | Reload tmux config |
+| `prefix+[` | Enter copy mode (vi-style) |
+| `prefix+?` | Show all key bindings |
+
+### Zsh
+| Key | Action |
+|-----|--------|
+| `Ctrl+R` | Search command history (with FZF if available) |
+| `Ctrl+T` | Search files (with FZF if available) |
+| `Alt+C` | Change directory (with FZF if available) |
+| `Ctrl+A` | Move to beginning of line |
+| `Ctrl+E` | Move to end of line |
+| `Ctrl+W` | Delete word backwards |
+| `Up/Down` | History search |
+| `Ctrl+Left/Right` | Jump between words |
 
 ## Customization
 
