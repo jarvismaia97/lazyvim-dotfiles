@@ -28,7 +28,7 @@ Personal Neovim configuration built on [LazyVim](https://www.lazyvim.org/) — a
 | **Trouble** | Pretty diagnostics list | `<Space>xx` |
 | **LazyGit** | Git UI inside Neovim | `<Space>gg` |
 | **Gitsigns** | Git blame + diff in gutter | automatic |
-| **Copilot** | AI code completion | automatic |
+| **Codeium** | AI code completion (free) | automatic |
 | **Conform** | Auto-format on save | automatic |
 | **nvim-lint** | Async linting | automatic |
 | **Which-key** | Shows available keybindings | `<Space>` + wait |
@@ -36,6 +36,26 @@ Personal Neovim configuration built on [LazyVim](https://www.lazyvim.org/) — a
 | **Todo Comments** | Highlight TODO/FIXME/HACK | automatic |
 | **Mini.surround** | Add/delete/change surroundings | `sa`, `sd`, `sr` |
 | **Mini.pairs** | Auto-close brackets/quotes | automatic |
+| **Zen Mode** | Distraction-free coding | `<Space>z` |
+| **Spectre** | Project-wide find & replace | `<Space>sr` |
+| **Refactoring** | Extract function/variable, inline | `<Space>re/rv/ri` |
+| **Neotest** | Run tests inline with results | `<Space>tt/tf/ts` |
+| **Oil.nvim** | Edit filesystem like a buffer | `<Space>o` or `-` |
+| **typescript-tools** | Faster TS LSP (replaces tsserver) | automatic |
+
+### WezTerm
+| Feature | Details |
+|---------|---------|
+| **Theme** | Catppuccin Mocha (matching nvim) |
+| **Font** | JetBrains Mono + ligatures |
+| **Opacity** | 92% with macOS background blur |
+| **Leader** | `Ctrl+A` (tmux-style) |
+| **Splits** | `Leader+-` (horiz), `Leader+\|` (vert) |
+| **Pane nav** | `Leader+hjkl` or `Ctrl+Shift+hjkl` |
+| **Zoom pane** | `Leader+z` |
+| **Tabs** | `Cmd+1-9` or `Leader+c/n/p` |
+| **Status bar** | Current directory + time |
+| **GPU** | WebGpu frontend, 120fps |
 
 ## Quick Start
 

@@ -106,11 +106,24 @@ if [ -d "$HOME/.local/share/nvim" ]; then
   rm -rf "$HOME/.cache/nvim"
 fi
 
-# ── 4. Symlink config ────────────────────────────────────────
+# ── 4. Symlink nvim config ───────────────────────────────────
 info "Symlinking $SCRIPT_DIR/nvim → $NVIM_CONFIG"
 mkdir -p "$(dirname "$NVIM_CONFIG")"
 ln -sf "$SCRIPT_DIR/nvim" "$NVIM_CONFIG"
-ok "Config linked"
+ok "Nvim config linked"
+
+# ── 4b. Symlink WezTerm config ──────────────────────────────
+WEZTERM_CONFIG="$HOME/.config/wezterm"
+if [ -d "$SCRIPT_DIR/wezterm" ]; then
+  if [ -d "$WEZTERM_CONFIG" ] && [ ! -L "$WEZTERM_CONFIG" ]; then
+    WEZTERM_BACKUP="${WEZTERM_CONFIG}.backup.$(date +%Y%m%d_%H%M%S)"
+    warn "Backing up existing WezTerm config → $WEZTERM_BACKUP"
+    mv "$WEZTERM_CONFIG" "$WEZTERM_BACKUP"
+  fi
+  info "Symlinking $SCRIPT_DIR/wezterm → $WEZTERM_CONFIG"
+  ln -sf "$SCRIPT_DIR/wezterm" "$WEZTERM_CONFIG"
+  ok "WezTerm config linked"
+fi
 
 # ── 5. First launch info ─────────────────────────────────────
 echo ""
@@ -134,5 +147,8 @@ echo "  Space+e   File explorer     Space+gg  LazyGit"
 echo "  Space+1-5 Harpoon marks     Space+a   Add harpoon mark"
 echo "  Space+xx  Diagnostics       gd        Go to definition"
 echo "  Space+ca  Code action       K         Hover docs"
+echo "  Space+z   Zen Mode          Space+sr  Search & Replace"
+echo "  Space+tt  Run test          Space+o   Oil file manager"
+echo "  sa/sd/sr  Surround add/del/replace"
 echo ""
 ok "Happy coding! 🎉"

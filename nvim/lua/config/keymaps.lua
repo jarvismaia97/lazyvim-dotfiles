@@ -93,3 +93,17 @@ map("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 -- K  = hover docs              (set by LazyVim)
 -- <leader>ca = code action     (set by LazyVim)
 -- <leader>cr = rename          (set by LazyVim)
+
+-- ── New Plugin Keymaps (reference) ──────────────────────────
+-- <leader>z   = Zen Mode toggle
+-- <leader>sr  = Spectre (search & replace project-wide)
+-- <leader>sw  = Spectre (word under cursor)
+-- <leader>re  = Extract function (visual)
+-- <leader>rv  = Extract variable (visual)
+-- <leader>ri  = Inline variable
+-- <leader>tt  = Run nearest test
+-- <leader>tf  = Run file tests
+-- <leader>ts  = Test summary
+-- <leader>o   = Oil file manager
+-- -           = Oil (parent dir)
+-- sa/sd/sr    = Surround add/delete/replace
